@@ -1,0 +1,39 @@
+package Node;
+
+public class twoNode {
+
+	public static class Node {
+		public int value;
+		public Node left;
+		public Node right;
+		public Node(int data) {
+			this.value = data;
+		}
+	}
+	
+	public static void f(Node head) {
+		if (head== null ) {
+			return;
+		}
+		f(head.right);
+		
+		f(head.left);
+	}
+	public static void inorder(Node head) {
+		if (head == null) {
+			return;
+		}
+		//中序打印（左头右）
+		inorder(head.left);
+		System.out.println(head.value + " ");
+		inorder(head.right);
+		//先序打印（头左右）
+		System.out.println(head.value + " ");
+		inorder(head.left);
+		inorder(head.right);
+		//后序打印（左右头）
+		inorder(head.left);
+		inorder(head.right);
+		System.out.println(head.value + " ");
+	}
+}
